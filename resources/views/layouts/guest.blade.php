@@ -1,30 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'De Gouden Draak') }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <!-- Fonts -->
+    <!-- <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> -->
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/main.css'])
+    @stack('css')
+</head>
+
+<body>
+    <table id="main_table">
+        <tr class="row">
+            <td class="centered-text">resources\images\dragon-small.png
+                <img src="{{ url('../images/dragon-small.png') }}" alt="Golden Dragon" height="50px">
+                <span>De Gouden Draak</span>
+                <img src="pictures/dragon-small-flipped.png" alt="Golden Dragon" height="50px">
+            </td>
+            <td>
+                <a href="paginas/aanbiedingen.html" class="link-style">
+                    <div class="marquee-container">
+                        <div class="marquee">
+                            Welkom bij De Gouden Draak. Klik op deze tekst om de aanbiedingen van deze week te zien!
+                        </div>
+                    </div>
                 </a>
-            </div>
+            </td>
+            <td class="centered-text">
+                <img src="pictures/dragon-small.png" alt="Golden Dragon" height="50px">
+                <span>De Gouden Draak</span>
+                <img src="pictures/dragon-small-flipped.png" alt="Golden Dragon" height="50px">
+            </td>
+        </tr>
+    </table>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
-        </div>
-    </body>
+
+    <table id="main_table">
+        <tr class="row-1">
+            <td class="row" colspan="11"></td>
+        </tr>
+        <tr class="row row-2">
+            <td class="spacer"></td>
+            <td class="bordered border-left border-top"></td>
+            <td class="bordered border-right border-top"></td>
+            <td class="bordered border-right border-bottom"></td>
+            <td class="border-top border-bottom" colspan="3"></td>
+            <td class="bordered border-left border-bottom"></td>
+            <td class="bordered border-left border-top"></td>
+            <td class="bordered border-right border-top"></td>
+            <td class="spacer"></td>
+        </tr>
+        <tr class="row row-3">
+            <td class="spacer"></td>
+            <td class="bordered border-left border-bottom"></td>
+            <td class="bordered border-left border-right border-top border-bottom"></td>
+            <td class="bordered border-left border-right border-top border-bottom"></td>
+            <td colspan="3"></td>
+            <td class="bordered border-left border-right border-top border-bottom"></td>
+            <td class="bordered border-left border-right border-top border-bottom"></td>
+            <td class="bordered border-right border-bottom"></td>
+            <td class="spacer"></td>
+        </tr>
+        <tr class="row row-4">
+            <td class="spacer"></td>
+            <td class="bordered border-right border-bottom"></td>
+            <td class="bordered border-left border-right border-top border-bottom"></td>
+            <td class="bordered border-left border-top"></td>
+            <td colspan="3"></td>
+            <td class="bordered border-right border-top"></td>
+            <td class="bordered border-left border-right border-top border-bottom"></td>
+            <td class="bordered border-bottom"></td>
+            <td class="spacer"></td>
+        </tr>
+        <tr class="row row-7">
+            <td class="spacer"></td>
+            <td class="bordered border-right border-left"></td>
+            <td class="bordered"></td>
+            <td class="bordered"></td>
+            <td colspan="3" style="text-align:center">
+                <table class="content-table">
+                    <tr>
+                        <td colspan="3">
+                            <p>
+                                <img class="img" src="pictures/dragon-small.png" style="float:left;height:200px"
+                                    alt="Golden Dragon">
+                                <img class="img" src="pictures/dragon-small-flipped.png"
+                                    style="float:right;height:200px" alt="Golden Dragon">
+                                <span>Chinees Indische Specialiteiten</span>
+                                <span class="title">De Gouden Draak</span>
+                            </p>
+                            <p>
+                            <table class="menu-table">
+                                <tr>
+                                    <td>
+                                        <a href="paginas/MENUKAART.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Menukaart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="paginas/news.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nieuws&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="paginas/contact.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style="padding-top:50px">
+                        <td colspan="3" height="50px"></td>
+                    </tr>
+                    <tr style="padding-top:50px">
+                        <td width="50px"></td>
+                        {{ $slot }}
+                        <td width="50px"></td>
+                    </tr>
+                </table>
+                <br>
+                <div style="text-align:center"><a href="paginas/contact_new.html">Naar Contact</a></div>
+            </td>
+            <td class="bordered"></td>
+            <td class="bordered"></td>
+            <td class="bordered border-right border-left"></td>
+            <td class="spacer"></td>
+        </tr>
+
+        <tr class="row row-4">
+            <td class="spacer"></td>
+            <td class="border-top border-right border-bottom"></td>
+            <td class="border-left border-right border-bottom border-top"></td>
+            <td class=""></td>
+            <td colspan="3"></td>
+            <td class=""></td>
+            <td class="border-left border-top border-bottom border-right"></td>
+            <td class="border-left border-top border-bottom"></td>
+            <td class="spacer"></td>
+        </tr>
+        <tr class="row row-3">
+            <td class="spacer"></td>
+            <td class="border-left border-top border-right"></td>
+            <td class="border-left border-right border-bottom border-top"></td>
+            <td class="border-left border-right border-bottom border-top"></td>
+            <td class="border-bottom" colspan="3"></td>
+            <td class="border-left border-right border-bottom border-top"></td>
+            <td class="border-left border-right border-bottom border-top"></td>
+            <td class="border-left border-top border-right"></td>
+            <td class="spacer"></td>
+        </tr>
+
+        <tr class="row row-2">
+            <td class="spacer"></td>
+            <td class="border-left border-bottom"></td>
+            <td class="border-bottom"></td>
+            <td class="border-left border-right"></td>
+            <td class="border-bottom border-left border-right" colspan="3"></td>
+            <td class="border-left border-right"></td>
+            <td class="border-left border-bottom"></td>
+            <td class="border-bottom border-right"></td>
+            <td class="spacer"></td>
+        </tr>
+        <tr class="row-1">
+            <td class="row" colspan="11"></td>
+        </tr>
+
+    </table>
+</body>
+
 </html>

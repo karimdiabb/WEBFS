@@ -1,0 +1,180 @@
+body {
+    background-color: darkred;
+    margin: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+td {
+    padding: 0px;
+}
+
+@font-face {
+    font-family: 'chinese_takeawayregular';
+    src: url('fonts/chinesetakeaway-webfont.woff2') format('woff2'),
+        url('fonts/chinesetakeaway-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: yellow;
+}
+
+.marquee-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 50px;
+}
+
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    animation: marquee 15s linear infinite;
+    line-height: 50px;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+#main_table {
+    padding: 5px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.row {
+    background-color: red;
+}
+
+.centered-text {
+    text-align: center;
+    width: 30%;
+    color: yellow;
+    font-size: 30px;
+}
+
+.centered-text img {
+    vertical-align: middle;
+}
+
+.centered-text span {
+    font-family: 'chinese_takeawayregular';
+}
+
+.link-style {
+    color: yellow;
+    font-weight: bold;
+}
+
+.row-1 {
+    height: 7px;
+}
+
+.row-2,
+.row-3,
+.row-4,
+.row-5,
+.row-6 {
+    height: 25px;
+}
+
+.row-7 {
+    height: 50px;
+}
+
+.bordered {
+    width: 25px;
+}
+
+.border-left {
+    border-left: 4px solid yellow;
+}
+
+.border-right {
+    border-right: 4px solid yellow;
+}
+
+.border-top {
+    border-top: 4px solid yellow;
+}
+
+.border-bottom {
+    border-bottom: 4px solid yellow;
+}
+
+.spacer {
+    width: 7px;
+}
+
+.content-table {
+    width: 100%;
+    text-align: center;
+}
+
+.content-table .img {
+    height: 200px;
+    vertical-align: middle;
+}
+
+.content-table span {
+    display: block;
+    font-size: 40px;
+    font-weight: bold;
+    color: yellow;
+}
+
+.content-table .title {
+    font-size: 50px;
+}
+
+.menu-table {
+    margin: auto;
+    font-size: 20px;
+    color: white;
+    border: 1px outset grey;
+}
+
+
+.menu-table td {
+    vertical-align: middle;
+
+}
+
+.menu-table a {
+    color: white;
+    border: 1px inset grey;
+    background: url('pictures/menu_bg_gradient.png');
+}
+
+.promo {
+    font-size: 5;
+    border: 1px solid black;
+    background: floralwhite;
+    text-align: center;
+}
+
+.promo table {
+    width: 60%;
+    margin: auto;
+}
+
+.promo .menu-right {
+    text-align: right;
+    width: 40%;
+}
+
+.promo .menu-left {
+    text-align: left;
+    width: 40%;
+}
