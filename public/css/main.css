@@ -11,8 +11,8 @@ td {
 
 @font-face {
     font-family: 'chinese_takeawayregular';
-    src: url('fonts/chinesetakeaway-webfont.woff2') format('woff2'),
-        url('fonts/chinesetakeaway-webfont.woff') format('woff');
+    src: url('../fonts/chinesetakeaway-webfont.woff2') format('woff2'),
+        url('../fonts/chinesetakeaway-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -154,7 +154,7 @@ a {
 .menu-table a {
     color: white;
     border: 1px inset grey;
-    background: url('pictures/menu_bg_gradient.png');
+    background: url('../images/menu_bg_gradient.png');
 }
 
 .promo {
@@ -177,4 +177,9 @@ a {
 .promo .menu-left {
     text-align: left;
     width: 40%;
+}
+
+.menu > img {
+    width: 100% !important;
+    height: 100% !important;
 }

@@ -1,9 +1,10 @@
 <x-guest-layout>
     @push('css')
-        {{-- <link rel="stylesheet" href="path to your css"> --}}
+        {{--
+        <link rel="stylesheet" href="path to your css"> --}}
     @endpush
 
-    <td align="center" class="promo">
+    <td class="promo">
         <br>
         <h3>Al jaren is De Gouden Draak een begrip als het gaat om de beste afhaalgerechten in
             's-Hertogenbosch.<br>

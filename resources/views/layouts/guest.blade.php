@@ -7,10 +7,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'De Gouden Draak') }}</title>
 
-    <!-- Fonts -->
-    <!-- <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> -->
-
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/main.css'])
     @stack('css')
@@ -19,10 +15,10 @@
 <body>
     <table id="main_table">
         <tr class="row">
-            <td class="centered-text">resources\images\dragon-small.png
-                <img src="{{ url('../images/dragon-small.png') }}" alt="Golden Dragon" height="50px">
+            <td class="centered-text">
+                <img src="{{ url('../images/dragon-small.png') }}" alt="Golden Dragon" class="spacer-height">
                 <span>De Gouden Draak</span>
-                <img src="pictures/dragon-small-flipped.png" alt="Golden Dragon" height="50px">
+                <img src="{{url('../images/dragon-small-flipped.png')}}" alt="Golden Dragon" class="spacer-height">
             </td>
             <td>
                 <a href="paginas/aanbiedingen.html" class="link-style">
@@ -34,9 +30,9 @@
                 </a>
             </td>
             <td class="centered-text">
-                <img src="pictures/dragon-small.png" alt="Golden Dragon" height="50px">
+                <img src="{{ url('../images/dragon-small.png') }}" alt="Golden Dragon" class="spacer-height">
                 <span>De Gouden Draak</span>
-                <img src="pictures/dragon-small-flipped.png" alt="Golden Dragon" height="50px">
+                <img src="{{url('../images/dragon-small-flipped.png')}}" alt="Golden Dragon" class="spacer-height">
             </td>
         </tr>
     </table>
@@ -84,15 +80,14 @@
             <td class="bordered border-right border-left"></td>
             <td class="bordered"></td>
             <td class="bordered"></td>
-            <td colspan="3" style="text-align:center">
+            <td colspan="3" class="text-center">
                 <table class="content-table">
                     <tr>
                         <td colspan="3">
                             <p>
-                                <img class="img" src="pictures/dragon-small.png" style="float:left;height:200px"
+                                <img class="head-left" src="{{ url('../images/dragon-small.png') }}"
                                     alt="Golden Dragon">
-                                <img class="img" src="pictures/dragon-small-flipped.png"
-                                    style="float:right;height:200px" alt="Golden Dragon">
+                                <img class="head-right" src="{{ url('../images/dragon-small-flipped.png') }}" alt="Golden Dragon">
                                 <span>Chinees Indische Specialiteiten</span>
                                 <span class="title">De Gouden Draak</span>
                             </p>
@@ -117,13 +112,13 @@
                             </p>
                         </td>
                     </tr>
-                    <tr style="padding-top:50px">
-                        <td colspan="3" height="50px"></td>
+                    <tr class="spacer-padding">
+                        <td colspan="3" class="spacer-height"></td>
                     </tr>
-                    <tr style="padding-top:50px">
-                        <td width="50px"></td>
+                    <tr class="spacer-padding">
+                        <td class="spacer-width"></td>
                         {{ $slot }}
-                        <td width="50px"></td>
+                        <td class="spacer-width"></td>
                     </tr>
                 </table>
                 <br>

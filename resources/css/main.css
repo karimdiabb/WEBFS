@@ -5,7 +5,6 @@ body {
     margin-right: 50px;
 }
 
-
 td {
     padding: 0px;
 }
@@ -21,6 +20,23 @@ td {
 a {
     text-decoration: none;
     color: yellow;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.head-left {
+    float: left !important; 
+    height: 200px !important;
+    vertical-align: middle;
+
+}
+.head-right {
+    float: right !important;
+    height: 200px !important;
+    vertical-align: middle;
+
 }
 
 .marquee-container {
@@ -117,15 +133,18 @@ a {
 .spacer {
     width: 7px;
 }
-
+.spacer-height {
+    height: 50px;
+}
+.spacer-width {
+    width: 50px;
+}
+.spacer-padding {
+    padding-top: 50px;
+}
 .content-table {
     width: 100%;
     text-align: center;
-}
-
-.content-table .img {
-    height: 200px;
-    vertical-align: middle;
 }
 
 .content-table span {
@@ -178,4 +197,9 @@ a {
 .promo .menu-left {
     text-align: left;
     width: 40%;
+}
+
+.menu > img {
+    width: 100% !important;
+    height: 100% !important;
 }
