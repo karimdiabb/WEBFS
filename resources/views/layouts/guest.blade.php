@@ -18,7 +18,7 @@
             <td class="centered-text">
                 <img src="{{ url('../images/dragon-small.png') }}" alt="Golden Dragon" class="spacer-height">
                 <span>De Gouden Draak</span>
-                <img src="{{url('../images/dragon-small-flipped.png')}}" alt="Golden Dragon" class="spacer-height">
+                <img src="{{ url('../images/dragon-small-flipped.png') }}" alt="Golden Dragon" class="spacer-height">
             </td>
             <td>
                 <a href="paginas/aanbiedingen.html" class="link-style">
@@ -32,7 +32,7 @@
             <td class="centered-text">
                 <img src="{{ url('../images/dragon-small.png') }}" alt="Golden Dragon" class="spacer-height">
                 <span>De Gouden Draak</span>
-                <img src="{{url('../images/dragon-small-flipped.png')}}" alt="Golden Dragon" class="spacer-height">
+                <img src="{{ url('../images/dragon-small-flipped.png') }}" alt="Golden Dragon" class="spacer-height">
             </td>
         </tr>
     </table>
@@ -87,7 +87,8 @@
                             <p>
                                 <img class="head-left" src="{{ url('../images/dragon-small.png') }}"
                                     alt="Golden Dragon">
-                                <img class="head-right" src="{{ url('../images/dragon-small-flipped.png') }}" alt="Golden Dragon">
+                                <img class="head-right" src="{{ url('../images/dragon-small-flipped.png') }}"
+                                    alt="Golden Dragon">
                                 <span>Chinees Indische Specialiteiten</span>
                                 <span class="title">De Gouden Draak</span>
                             </p>
@@ -95,16 +96,13 @@
                             <table class="menu-table">
                                 <tr>
                                     <td>
-                                        <a href="paginas/MENUKAART.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Menukaart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </a>
+                                        <a id="menu-link1" href="paginas/MENUKAART.html">Menukaart</a>
                                     </td>
                                     <td>
-                                        <a href="paginas/news.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nieuws&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </a>
+                                        <a id="menu-link2" href="paginas/news.html">Nieuws</a>
                                     </td>
                                     <td>
-                                        <a href="paginas/contact.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </a>
+                                        <a id="menu-link3" href="paginas/contact.html">Contact</a>
                                     </td>
                                 </tr>
                             </table>
@@ -122,7 +120,7 @@
                     </tr>
                 </table>
                 <br>
-                <div style="text-align:center"><a href="paginas/contact_new.html">Naar Contact</a></div>
+                <div id="footer"><a href="paginas/contact_new.html">Naar Contact</a></div>
             </td>
             <td class="bordered"></td>
             <td class="bordered"></td>
