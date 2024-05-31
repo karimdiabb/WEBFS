@@ -96,13 +96,13 @@
                             <table class="menu-table">
                                 <tr>
                                     <td>
-                                        <a id="menu-link1" href="paginas/MENUKAART.html">Menukaart</a>
+                                        <a id="menu-link1" href="{{ route('menu') }}">Menukaart</a>
                                     </td>
                                     <td>
-                                        <a id="menu-link2" href="paginas/news.html">Nieuws</a>
+                                        <a id="menu-link2" href="{{ route('news') }}">Nieuws</a>
                                     </td>
                                     <td>
-                                        <a id="menu-link3" href="paginas/contact.html">Contact</a>
+                                        <a id="menu-link3" href="#">Contact</a>
                                     </td>
                                 </tr>
                             </table>
@@ -115,7 +115,10 @@
                     </tr>
                     <tr class="spacer-padding">
                         <td class="spacer-width"></td>
-                        {{ $slot }}
+                        <td class="promo">
+                            {{ $slot }}
+
+                        </td>
                         <td class="spacer-width"></td>
                     </tr>
                 </table>

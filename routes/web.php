@@ -8,7 +8,11 @@ Route::get('/', function () {
 });
 Route::get('/menu', function () {
     return view('home.menu');
-});
+})->name('menu');
+Route::get('/news', function () {
+    return view('home.news');
+})->name('news');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
