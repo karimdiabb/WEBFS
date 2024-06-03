@@ -102,7 +102,7 @@
                                         <a id="menu-link2" href="{{ route('news') }}">Nieuws</a>
                                     </td>
                                     <td>
-                                        <a id="menu-link3" href="#">Contact</a>
+                                        <a id="menu-link3" href="{{ route('contact') }}">Contact</a>
                                     </td>
                                 </tr>
                             </table>
@@ -115,12 +115,10 @@
                     </tr>
                     <tr class="spacer-padding">
                         <td class="spacer-width"></td>
-                        <td class="promo">
-                            {{ $slot }}
-
-                        </td>
+                        {{ $slot }}
                         <td class="spacer-width"></td>
                     </tr>
+                    @stack('tr')
                 </table>
                 <br>
                 <div id="footer"><a href="paginas/contact_new.html">Naar Contact</a></div>

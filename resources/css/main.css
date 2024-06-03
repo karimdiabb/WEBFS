@@ -229,3 +229,8 @@ a {
 #footer {
     text-align: center;
 }
+
+.contact img {
+    width: 100% !important;
+    height: 100% !important;
+}

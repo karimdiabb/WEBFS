@@ -12,6 +12,9 @@ Route::get('/menu', function () {
 Route::get('/news', function () {
     return view('home.news');
 })->name('news');
+Route::get('/contact', function () {
+    return view('home.contact');
+})->name('contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
