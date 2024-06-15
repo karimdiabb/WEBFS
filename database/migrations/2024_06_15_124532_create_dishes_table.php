@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -15,7 +14,7 @@ return new class extends Migration
             $table->integer('DishID', true);
             $table->string('DishName', 100)->nullable();
             $table->decimal('Price', 10)->nullable();
-            $table->string('Description')->nullable();
+            $table->text('Description')->nullable();
             $table->integer('DishTypeID')->nullable()->index('idx_dishes_dishtypeid');
         });
     }

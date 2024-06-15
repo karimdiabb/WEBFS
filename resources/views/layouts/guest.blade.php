@@ -8,7 +8,7 @@
     <title>{{ config('app.name', 'De Gouden Draak') }}</title>
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/main-front.css'])
+    @vite(['resources/js/app.js', 'resources/css/main-front.css'])
     @stack('css')
 </head>
 

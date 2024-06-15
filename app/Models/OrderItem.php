@@ -10,14 +10,13 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class OrderItem
- * 
+ *
  * @property int $OrderItemID
  * @property int $OrderID
  * @property int $MenuItemID
  * @property int|null $Quantity
  * @property float|null $ItemPrice
- * @property string|null $Notes
- * 
+ *
  * @property Order $order
  * @property MenuItem $menu_item
  *
@@ -25,32 +24,31 @@ use Illuminate\Database\Eloquent\Model;
  */
 class OrderItem extends Model
 {
-	protected $table = 'order_items';
-	protected $primaryKey = 'OrderItemID';
-	public $timestamps = false;
+    protected $table = 'order_items';
+    protected $primaryKey = 'OrderItemID';
+    public $timestamps = false;
 
-	protected $casts = [
-		'OrderID' => 'int',
-		'MenuItemID' => 'int',
-		'Quantity' => 'int',
-		'ItemPrice' => 'float'
-	];
+    protected $casts = [
+        'OrderID' => 'int',
+        'MenuItemID' => 'int',
+        'Quantity' => 'int',
+        'ItemPrice' => 'float'
+    ];
 
-	protected $fillable = [
-		'OrderID',
-		'MenuItemID',
-		'Quantity',
-		'ItemPrice',
-		'Notes'
-	];
+    protected $fillable = [
+        'OrderID',
+        'MenuItemID',
+        'Quantity',
+        'ItemPrice',
+    ];
 
-	public function order()
-	{
-		return $this->belongsTo(Order::class, 'OrderID');
-	}
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'OrderID');
+    }
 
-	public function menu_item()
-	{
-		return $this->belongsTo(MenuItem::class, 'MenuItemID');
-	}
+    public function menu_item()
+    {
+        return $this->belongsTo(MenuItem::class, 'MenuItemID');
+    }
 }
