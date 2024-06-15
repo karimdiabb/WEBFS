@@ -66,7 +66,7 @@ a {
 }
 
 
-#main_table {
+.main_table {
     padding: 5px;
     width: 100%;
     border-collapse: collapse;

@@ -8,12 +8,12 @@
     <title>{{ config('app.name', 'De Gouden Draak') }}</title>
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/main.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/main-front.css'])
     @stack('css')
 </head>
 
 <body>
-    <table id="main_table">
+    <table class="main_table">
         <tr class="row">
             <td class="centered-text">
                 <img src="{{ url('../images/dragon-small.png') }}" alt="Golden Dragon" class="spacer-height">
@@ -38,7 +38,7 @@
     </table>
 
 
-    <table id="main_table">
+    <table class="main_table">
         <tr class="row-1">
             <td class="row" colspan="11"></td>
         </tr>
@@ -115,7 +115,9 @@
                     </tr>
                     <tr class="spacer-padding">
                         <td class="spacer-width"></td>
-                        <td class="promo" id="app">{{ $slot }}</td>
+                        <td class="promo">
+                            {{ $slot }}
+                        </td>
                         <td class="spacer-width"></td>
                     </tr>
                     @stack('tr')
