@@ -1,13 +1,11 @@
 <x-guest-layout>
-    <td class="promo">
+    <br>
+    <h3>De Gouden Draak is eenvoudig te vinden, vlak bij het centrum, 5 minuten lopen achter het
+        centraal station.
         <br>
-        <h3>De Gouden Draak is eenvoudig te vinden, vlak bij het centrum, 5 minuten lopen achter het
-            centraal station.
-            <br>
-            <br>
-            Onderwijsboulevard 215, kamer OG112<br> 5223 DE 's-Hertogenbosch
-        </h3>
-    </td>
+        <br>
+        Onderwijsboulevard 215, kamer OG112<br> 5223 DE 's-Hertogenbosch
+    </h3>
     @push('tr')
         <tr class="spacer-padding">
             <td class="spacer-width"></td>

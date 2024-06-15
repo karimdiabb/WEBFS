@@ -1,6 +1,6 @@
 <x-guest-layout>
-    <td class="menu promo">
+    <div class="menu">
         <img src="{{ url('../images/menu/restaurant-menukaart-1-2.jpg') }}">
         <img src="{{ url('../images/menu/restaurant-menukaart-1.jpg') }}">
-    </td>
+    </div>
 </x-guest-layout>

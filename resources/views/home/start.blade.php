@@ -1,6 +1,5 @@
 <x-guest-layout>
-    <td class="promo">
-        <br>
+    <br>
         <h3>Al jaren is De Gouden Draak een begrip als het gaat om de beste afhaalgerechten in
             's-Hertogenbosch.<br>
             Graag trakteren we u op authentieke gerechten uit de Cantonese keuken.</h3>
@@ -29,5 +28,4 @@
             <br>Met witte rijst. (Nasi of bami voor meerprijs mogelijk.)
         </h3>
         <h1>Prijs: €21,00</h1>
-    </td>
 </x-guest-layout>

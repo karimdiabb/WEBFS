@@ -1,7 +1,13 @@
 <?php
 
+use App\Http\Controllers\TableSessionController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\RestaurantTable;
+
+Route::get('/api/tables', function () {
+    return RestaurantTable::all();
+});
 
 Route::get('/', function () {
     return view('home.start');
@@ -25,5 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/table-sessions/create', [TableSessionController::class, 'create']);
+Route::get('/table-sessions', [TableSessionController::class, 'index']);
+Route::post('/table-sessions', [TableSessionController::class, 'store']);
+
 
 require __DIR__ . '/auth.php';

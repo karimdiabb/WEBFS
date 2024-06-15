@@ -115,7 +115,7 @@
                     </tr>
                     <tr class="spacer-padding">
                         <td class="spacer-width"></td>
-                        {{ $slot }}
+                        <td class="promo" id="app">{{ $slot }}</td>
                         <td class="spacer-width"></td>
                     </tr>
                     @stack('tr')
