@@ -1,8 +1,8 @@
-<x-guest-layout>
+<x-app-layout>
     <div id="app">
         <register-visitors>
         </register-visitors>
     </div>
 
     @vite('resources/js/app.js')
-</x-guest-layout>
+</x-app-layout>

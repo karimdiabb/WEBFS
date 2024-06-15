@@ -10,7 +10,7 @@ Route::get('/api/tables', function () {
 });
 
 Route::get('/', function () {
-    return view('home.start');
+    return view('home.start')->name('start');
 });
 Route::get('/menu', function () {
     return view('home.menu');
@@ -53,9 +53,12 @@ Route::middleware('auth')->group(function () {
     })->name('submit-order');
 });
 
-Route::get('/table-sessions/create', [TableSessionController::class, 'create']);
-Route::get('/table-sessions', [TableSessionController::class, 'index']);
-Route::post('/table-sessions', [TableSessionController::class, 'store']);
-
+Route::get('/tables/create', [TableSessionController::class, 'create'])->name('tables.create');
+Route::get('/tables', [TableSessionController::class, 'index'])->name('tables');
+Route::post('/tables', [TableSessionController::class, 'store']);
+Route::get('/help-requests', [TableSessionController::class, 'index'])->name('help_requests.index');
+Route::post('/help-requests/{id}/resolve', [TableSessionController::class, 'resolveHelp'])->name('help_requests.resolve');
+Route::get('/tables/{tableId}/customer', [TableSessionController::class, 'showCustomer'])->name('table_sessions.customer');
+Route::delete('/table-sessions/{id}', [TableSessionController::class, 'destroy'])->name('table_sessions.destroy');
 
 require __DIR__ . '/auth.php';

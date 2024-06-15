@@ -31,6 +31,11 @@
                         {{ __('Verkoop Overzicht') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('tables')" :active="request()->routeIs('tables')">
+                        {{ __('Tafel overzicht') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
