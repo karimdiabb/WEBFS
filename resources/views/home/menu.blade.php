@@ -1,3 +1,4 @@
+@dd("menu")
 <x-guest-layout>
     <div class="menu">
         <img src="{{ url('../images/menu/restaurant-menukaart-1-2.jpg') }}">

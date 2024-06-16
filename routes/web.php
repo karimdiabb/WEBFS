@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\TableSessionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 use App\Models\RestaurantTable;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 Route::get('/api/tables', function () {
     return RestaurantTable::all();
@@ -12,6 +14,7 @@ Route::get('/api/tables', function () {
 Route::get('/', function () {
     return view('home.start')->name('start');
 });
+
 Route::get('/menu', function () {
     return view('home.menu');
 })->name('menu');
@@ -60,5 +63,8 @@ Route::get('/help-requests', [TableSessionController::class, 'index'])->name('he
 Route::post('/help-requests/{id}/resolve', [TableSessionController::class, 'resolveHelp'])->name('help_requests.resolve');
 Route::get('/tables/{tableId}/customer', [TableSessionController::class, 'showCustomer'])->name('table_sessions.customer');
 Route::delete('/table-sessions/{id}', [TableSessionController::class, 'destroy'])->name('table_sessions.destroy');
+
+Route::get('/menu/download', [MenuController::class, 'downloadPdf'])->name('menu.download');
+
 
 require __DIR__ . '/auth.php';

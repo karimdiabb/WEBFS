@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('MenuID')->nullable()->index('idx_menuitems_menuid');
             $table->integer('DishID')->nullable()->index('idx_menuitems_dishid');
             $table->integer('ItemNumber')->nullable();
-            $table->char('ExtraIdentifier', 1)->nullable();
+            $table->string('ExtraIdentifier')->nullable();
 
             $table->unique(['MenuID', 'ItemNumber', 'ExtraIdentifier'], 'unique_menuitem');
         });

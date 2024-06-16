@@ -15,7 +15,7 @@ return new class extends Migration
             $table->integer('DishID', true);
             $table->string('DishName', 100)->nullable();
             $table->decimal('Price', 10)->nullable();
-            $table->string('Description')->nullable();
+            $table->text('Description')->nullable();
             $table->integer('DishTypeID')->nullable()->index('idx_dishes_dishtypeid');
         });
     }
