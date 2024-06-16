@@ -21,6 +21,7 @@
         "@ckeditor/ckeditor5-build-classic": "^41.4.2",
         "@ckeditor/ckeditor5-vue": "^5.1.0",
         "@vitejs/plugin-vue": "^5.0.5",
+        "preline": "^2.3.0",
         "tailwind": "^4.0.0",
         "vue": "^3.4.29"
     }

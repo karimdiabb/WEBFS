@@ -109,7 +109,7 @@ a {
 
 .centered-text img {
     vertical-align: middle;
-    display: inline-block !important;
+    display: inline-block!important; 
 }
 
 .centered-text span {
