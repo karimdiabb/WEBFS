@@ -51,33 +51,24 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
     Route::get('/order', [OrderController::class, 'create'])->name('order');
     Route::post('/submit-order', [OrderController::class, 'processOrder'])->name('submit-order');
     Route::get('/order/summary', [OrderOverviewController::class, 'index'])->name('order.overview');
     Route::get('/order/download/{filename}', [OrderOverviewController::class, 'download'])->name('order-summary.download');
     Route::post('/order/generate-summary', [OrderOverviewController::class, 'generate'])->name('order-summary.generate');
 
-
     Route::get('/dishes', [DishController::class, 'index'])->name('dishes.index');
-
-
-    Route::resource('pages', PageController::class);
-    Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');
-
-    /*temp*/
-    Route::get('/sales', function () {
-        return view('sales');
-    })->name('sales');
 
     Route::get('/tables', [TableSessionController::class, 'index'])->name('tables');
     Route::post('/tables', [TableSessionController::class, 'store']);
     Route::get('/tables/create', [TableSessionController::class, 'create'])->name('tables.create');
     Route::delete('/table-sessions/{id}', [TableSessionController::class, 'destroy'])->name('table_sessions.destroy');
 
-
     Route::get('/help-requests', [TableSessionController::class, 'index'])->name('help_requests.index');
     Route::post('/help-requests/{id}/resolve', [TableSessionController::class, 'resolveHelp'])->name('help_requests.resolve');
+
+    Route::resource('pages', PageController::class);
+    Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');
 });
 
 
