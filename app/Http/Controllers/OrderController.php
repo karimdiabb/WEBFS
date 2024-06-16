@@ -53,11 +53,10 @@ class OrderController extends Controller
             'tableID' => 'required|integer|exists:restaurant_tables,TableID',
             'order' => 'required|array',
             'TotalPrice' => 'required|numeric',
-            'Notes' => 'nullable|string',
         ]);
 
         $tableID = $request->input('tableID');
-        $orderData = $request->only(['TotalPrice', 'Notes']);
+        $orderData = $request->only(['TotalPrice']);
         $orderData['OrderTime'] = Carbon::now();
 
         // Find the latest session for the selected table
@@ -77,9 +76,11 @@ class OrderController extends Controller
                 'MenuItemID' => $item['MenuItemID'],
                 'Quantity' => $item['Quantity'],
                 'ItemPrice' => $item['ItemPrice'],
+                'Note' => $item['Note'] ?? null,
             ]);
         }
 
         return response()->json(['message' => 'Order successfully created']);
     }
+
 }

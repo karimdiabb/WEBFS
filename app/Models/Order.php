@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $OrderTime
  * @property float|null $TotalPrice
  * @property bool|null $ReorderFlag
- * @property string|null $Notes
 
  * @property TableSession $table_session
  * @property Collection|OrderItem[] $order_items
@@ -43,8 +42,6 @@ class Order extends Model
         'OrderTime',
         'TotalPrice',
         'ReorderFlag',
-        'Notes'
-
     ];
 
     public function table_session()

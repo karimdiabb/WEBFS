@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->integer('MenuItemID')->index('idx_orderitems_menuitemid');
             $table->integer('Quantity')->nullable();
             $table->decimal('ItemPrice', 10)->nullable();
+            $table->mediumText('Note')->nullable();
         });
     }
 

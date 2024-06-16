@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $MenuItemID
  * @property int|null $Quantity
  * @property float|null $ItemPrice
+ * @property string|null $Note
  *
  * @property Order $order
  * @property MenuItem $menu_item
@@ -40,6 +41,7 @@ class OrderItem extends Model
         'MenuItemID',
         'Quantity',
         'ItemPrice',
+        'Note'
     ];
 
     public function order()

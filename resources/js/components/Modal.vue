@@ -35,5 +35,3 @@ export default {
     },
 };
 </script>
-
-<!-- Tailwind CSS is being used; no scoped styles needed -->

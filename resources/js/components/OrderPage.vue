@@ -12,7 +12,7 @@
                 <input
                     type="text"
                     v-model="searchQuery"
-                    placeholder="Zoek menu naam ..."
+                    placeholder="Search menu naam ..."
                     class="w-full p-2 mb-3 border border-gray-400 rounded-lg"
                 />
                 <div
@@ -28,10 +28,10 @@
                             class="flex justify-between items-center py-2 border-b border-gray-300"
                         >
                             <span class="flex-1 text-gray-700"
-                                >{{ item.number
-                                }}{{
+                                >{{ item.number }}
+                                {{
                                     item.extraIdentifier
-                                        ? ` - ${item.extraIdentifier}`
+                                        ? ` ${item.extraIdentifier}`
                                         : ""
                                 }}
                                 - {{ item.name }} - €{{
@@ -52,38 +52,46 @@
                 <div
                     class="order-overview flex-1 p-5 border border-gray-300 rounded-lg bg-gray-100 shadow-md"
                 >
-                    <h3 class="text-lg font-semibold mb-3">
-                        Bestelling Overview
-                    </h3>
-                    <ul class="max-h-64 overflow-y-auto">
+                    <h3 class="text-lg font-semibold mb-3">Order Overview</h3>
+                    <ul>
                         <li
-                            v-for="(item, index) in groupedOrder"
+                            v-for="(item, index) in order"
                             :key="index"
-                            class="flex justify-between items-center py-2 border-b border-gray-300"
+                            class="flex flex-col py-2 border-b border-gray-300"
                         >
-                            {{ item.name }} - €{{ item.price.toFixed(2) }} (x{{
-                                item.quantity
-                            }})
-                            <button
-                                @click="removeFromOrder(index)"
-                                class="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-700"
-                            >
-                                Verwijder
-                            </button>
+                            <div class="flex justify-between items-center">
+                                <span
+                                    >{{ item.name }} - €{{
+                                        item.price.toFixed(2)
+                                    }}
+                                    (x{{ item.quantity }})</span
+                                >
+                                <div>
+                                    <button
+                                        @click="removeFromOrder(index)"
+                                        class="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-700"
+                                    >
+                                        Verwijder
+                                    </button>
+                                    <button
+                                        @click="toggleNoteVisibility(item)"
+                                        class="ml-2 px-3 py-1 bg-gray-500 text-white rounded-lg hover:bg-gray-700"
+                                    >
+                                        Noteer
+                                    </button>
+                                </div>
+                            </div>
+                            <textarea
+                                v-if="item.showNote"
+                                v-model="item.note"
+                                placeholder="Optionele note..."
+                                class="w-full mt-2 p-2 border border-gray-400 rounded-lg resize-none"
+                            ></textarea>
                         </li>
                     </ul>
                     <p class="mt-3 font-bold text-right text-gray-700">
-                        Totaal: €{{ total.toFixed(2) }}
+                        Total: €{{ total.toFixed(2) }}
                     </p>
-                </div>
-                <div
-                    class="note-field flex-1 p-5 border border-gray-300 rounded-lg bg-gray-100 shadow-md"
-                >
-                    <textarea
-                        v-model="note"
-                        placeholder="Optionele note..."
-                        class="w-full h-full p-2 border border-gray-400 rounded-lg resize-vertical"
-                    ></textarea>
                 </div>
                 <div
                     class="submit-field p-5 border border-gray-300 rounded-lg bg-gray-100 shadow-md flex flex-col gap-3"
@@ -152,28 +160,18 @@ export default {
     computed: {
         filteredMenuItems() {
             if (!this.menuItems) return [];
-            return this.menuItems.map((group) => {
-                return {
-                    type: group.type,
-                    items: group.items.filter((item) =>
-                        item.name
-                            .toLowerCase()
-                            .includes(this.searchQuery.toLowerCase())
-                    ),
-                };
-            });
-        },
-        groupedOrder() {
-            const grouped = [];
-            this.order.forEach((item) => {
-                const existingItem = grouped.find((i) => i.id === item.id);
-                if (existingItem) {
-                    existingItem.quantity += 1;
-                } else {
-                    grouped.push({ ...item, quantity: 1 });
-                }
-            });
-            return grouped;
+            return this.menuItems
+                .map((group) => {
+                    return {
+                        type: group.type,
+                        items: group.items.filter((item) =>
+                            item.name
+                                .toLowerCase()
+                                .includes(this.searchQuery.toLowerCase())
+                        ),
+                    };
+                })
+                .filter((group) => group.items.length > 0);
         },
         total() {
             return this.order.reduce(
@@ -184,10 +182,23 @@ export default {
     },
     methods: {
         addToOrder(item) {
-            this.order.push({ ...item, quantity: 1 });
+            const existingItem = this.order.find((i) => i.id === item.id);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                this.order.push({
+                    ...item,
+                    quantity: 1,
+                    showNote: false,
+                    note: "",
+                });
+            }
         },
         removeFromOrder(index) {
             this.order.splice(index, 1);
+        },
+        toggleNoteVisibility(item) {
+            item.showNote = !item.showNote;
         },
         clearOrder() {
             this.order = [];
@@ -203,13 +214,13 @@ export default {
 
             const orderData = {
                 tableID: this.selectedTable,
-                order: this.groupedOrder.map((item) => ({
+                order: this.order.map((item) => ({
                     MenuItemID: item.id,
                     Quantity: item.quantity,
                     ItemPrice: item.price,
+                    Note: item.note,
                 })),
                 TotalPrice: this.total,
-                Notes: this.note,
             };
 
             axios

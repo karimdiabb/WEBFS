@@ -16,8 +16,6 @@ return new class extends Migration {
             $table->dateTime('OrderTime')->nullable();
             $table->decimal('TotalPrice', 10)->nullable();
             $table->boolean('ReorderFlag')->nullable();
-            $table->mediumText('Notes')->nullable();
-
         });
     }
 
