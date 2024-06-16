@@ -56,7 +56,7 @@
                                 {{ __('Pagina\'s') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('menu.index')">
-                                {{ __('Webiste') }}
+                                {{ __('Menu') }}
                             </x-dropdown-link>
                         </x-slot>
                     </x-dropdown>
@@ -139,7 +139,7 @@
         <div class="pt-2 pb-3 space-y-1">
             <button @click="menuOpen = ! menuOpen"
                 class="flex items-center w-full px-4 py-2 text-sm font-medium text-left text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-800">
-                <span>{{ __('Menu') }}</span>
+                <span>{{ __('Website') }}</span>
                 <svg class="ml-auto h-4 w-4 transform transition-transform" :class="{ 'rotate-180': menuOpen }"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd"
