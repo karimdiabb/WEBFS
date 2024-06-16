@@ -232,7 +232,7 @@ export default {
                     },
                 })
                 .then((response) => {
-                    this.clearOrder(); // Clear the order on successful submission
+                    this.clearOrder();
                     this.modalMessage = "Bestelling succesvol toegevoegd!";
                     this.showModal();
                 })
