@@ -1,4 +1,3 @@
-@dd("test");
 <x-guest-layout>
     <br>
     <h3>Al jaren is De Gouden Draak een begrip als het gaat om de beste afhaalgerechten in

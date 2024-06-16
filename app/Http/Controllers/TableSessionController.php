@@ -24,7 +24,7 @@ class TableSessionController extends Controller
     public function create()
     {
         $tables = RestaurantTable::all();
-        return view('table_sessions.create',  compact('tables'));
+        return view('table_sessions.create', compact('tables'));
     }
 
     public function store(Request $request)
@@ -36,7 +36,7 @@ class TableSessionController extends Controller
             'extra_deluxe' => 'boolean'
         ]);
 
-        $birthdates = array_map(function($age) {
+        $birthdates = array_map(function ($age) {
             return Carbon::now()->subYears($age)->format('Y-01-01');
         }, $request->input('person_ages'));
 
@@ -53,7 +53,7 @@ class TableSessionController extends Controller
     public function showCustomer($tableId)
     {
         $tableSession = TableSession::where('TableID', $tableId)->firstOrFail();
-        
+
         if (!$tableSession) {
             return view('start')->with('error', 'Table not found.');
         }

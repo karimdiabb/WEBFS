@@ -1,4 +1,3 @@
-@dd("menu")
 <x-guest-layout>
     <div class="menu">
         @foreach ($images as $image)

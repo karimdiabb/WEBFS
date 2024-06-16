@@ -18,8 +18,8 @@ Route::get('/api/tables', function () {
 });
 
 Route::get('/', function () {
-    return view('home.start')->name('start');
-});
+    return view('home.start');
+})->name('start');
 
 Route::get('/menu', [MenuController::class, 'show'])->name('menu');
 Route::get('/menu/download', [MenuController::class, 'downloadPdf'])->name('menu.download');
@@ -34,6 +34,11 @@ Route::get('/contact', function () {
 
     return view('home.contact');
 })->name('contact');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {
@@ -60,24 +65,20 @@ Route::middleware('auth')->group(function () {
     Route::resource('pages', PageController::class);
     Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');
 
-     /*temp*/
-     Route::get('/sales', function () {
+    /*temp*/
+    Route::get('/sales', function () {
         return view('sales');
     })->name('sales');
 
-Route::get('/tables', [TableSessionController::class, 'index'])->name('tables');
-Route::post('/tables', [TableSessionController::class, 'store']);
-Route::get('/tables/create', [TableSessionController::class, 'create'])->name('tables.create');
-Route::delete('/table-sessions/{id}', [TableSessionController::class, 'destroy'])->name('table_sessions.destroy');
+    Route::get('/tables', [TableSessionController::class, 'index'])->name('tables');
+    Route::post('/tables', [TableSessionController::class, 'store']);
+    Route::get('/tables/create', [TableSessionController::class, 'create'])->name('tables.create');
+    Route::delete('/table-sessions/{id}', [TableSessionController::class, 'destroy'])->name('table_sessions.destroy');
 
 
-Route::get('/help-requests', [TableSessionController::class, 'index'])->name('help_requests.index');
-Route::post('/help-requests/{id}/resolve', [TableSessionController::class, 'resolveHelp'])->name('help_requests.resolve');
+    Route::get('/help-requests', [TableSessionController::class, 'index'])->name('help_requests.index');
+    Route::post('/help-requests/{id}/resolve', [TableSessionController::class, 'resolveHelp'])->name('help_requests.resolve');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
