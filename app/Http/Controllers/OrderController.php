@@ -49,11 +49,21 @@ class OrderController extends Controller
 
     public function processOrder(Request $request)
     {
+        $messages = [
+            'tableID.required' => 'Tafel-ID is verplicht.',
+            'tableID.integer' => 'Tafel-ID moet een geheel getal zijn.',
+            'tableID.exists' => 'De geselecteerde tafel bestaat niet.',
+            'order.required' => 'Bestellingsgegevens zijn verplicht.',
+            'order.array' => 'Bestelling moet een array zijn.',
+            'TotalPrice.required' => 'Totale prijs is verplicht.',
+            'TotalPrice.numeric' => 'Totale prijs moet een numerieke waarde zijn.',
+        ];
+
         $request->validate([
             'tableID' => 'required|integer|exists:restaurant_tables,TableID',
             'order' => 'required|array',
             'TotalPrice' => 'required|numeric',
-        ]);
+        ], $messages);
 
         $tableID = $request->input('tableID');
         $orderData = $request->only(['TotalPrice']);
@@ -63,7 +73,7 @@ class OrderController extends Controller
         $tableSession = TableSession::where('TableID', $tableID)->latest('SessionID')->first();
 
         if (!$tableSession) {
-            return response()->json(['message' => 'No active session found for the selected table'], 400);
+            return response()->json(['message' => 'Geen actieve sessie gevonden voor de geselecteerde tafel'], 400);
         }
 
         $orderData['SessionID'] = $tableSession->SessionID;
@@ -82,5 +92,6 @@ class OrderController extends Controller
 
         return response()->json(['message' => 'Order successfully created']);
     }
+
 
 }

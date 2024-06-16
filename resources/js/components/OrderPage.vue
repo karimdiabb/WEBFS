@@ -205,7 +205,7 @@ export default {
             this.note = "";
             this.selectedTable = "";
         },
-        submitOrder() {
+        async submitOrder() {
             if (!this.selectedTable) {
                 this.modalMessage = "Selecteer een tafel.";
                 this.showModal();
@@ -223,28 +223,37 @@ export default {
                 TotalPrice: this.total,
             };
 
-            axios
-                .post("/submit-order", orderData, {
+            try {
+                const response = await axios.post("/submit-order", orderData, {
                     headers: {
                         "X-CSRF-TOKEN": document
                             .querySelector('meta[name="csrf-token"]')
                             .getAttribute("content"),
                     },
-                })
-                .then((response) => {
-                    this.clearOrder();
-                    this.modalMessage = "Bestelling succesvol toegevoegd!";
-                    this.showModal();
-                })
-                .catch((error) => {
-                    console.error(
-                        "There was an error submitting the order:",
-                        error
-                    );
+                });
+                this.clearOrder();
+                this.modalMessage = "Bestelling succesvol toegevoegd!";
+                this.showModal();
+            } catch (error) {
+                if (error.response) {
+                    if (error.response.status === 400) {
+                        this.modalMessage = error.response.data.message;
+                    } else if (error.response.status === 422) {
+                        this.modalMessage = Object.values(
+                            error.response.data.errors
+                        )
+                            .flat()
+                            .join(" ");
+                    } else {
+                        this.modalMessage =
+                            "Er was een fout bij het indienen van de bestelling.";
+                    }
+                } else {
                     this.modalMessage =
                         "Er was een fout bij het indienen van de bestelling.";
-                    this.showModal();
-                });
+                }
+                this.showModal();
+            }
         },
         showModal() {
             this.isModalVisible = true;
