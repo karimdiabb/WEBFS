@@ -22,7 +22,7 @@
                 <img src="{{ url('../images/dragon-small-flipped.png') }}" alt="Golden Dragon" class="spacer-height">
             </td>
             <td>
-                <a href="paginas/aanbiedingen.html" class="link-style">
+                <a href="{{ route('start') }}" class="link-style">
                     <div class="marquee-container">
                         <div class="marquee">
                             Welkom bij De Gouden Draak. Klik op deze tekst om de aanbiedingen van deze week te zien!
