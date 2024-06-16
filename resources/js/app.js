@@ -1,11 +1,15 @@
 import './bootstrap';
 import Alpine from 'alpinejs';
 import { createApp } from 'vue';
-import OrderPage from '../components/OrderPage.vue';
+import OrderPage from './components/OrderPage.vue';
 import RegisterVisitors from './components/RegisterVisitors.vue';
 import RequestHelp from './components/RequestHelp.vue';
 import DownloadMenu from './components/DownloadMenu.vue';
 import FavoriteDishes from './components/FavoriteDishes.vue';
+import MenuImageForm from './components/MenuImageForm.vue';
+import OrderSummary from './components/OrderSummary.vue';
+import PageForm from './components/PageForm.vue';
+import CKEditor from '@ckeditor/ckeditor5-vue';
 
 window.Alpine = Alpine;
 Alpine.start();
@@ -16,5 +20,9 @@ app.component('register-visitors', RegisterVisitors);
 app.component('request-help', RequestHelp);
 app.component('download-menu', DownloadMenu);
 app.component('favorite-dishes', FavoriteDishes);
+app.component('menu-image-form', MenuImageForm);
+app.component('order-summary', OrderSummary);
+app.component('page-form', PageForm);
+app.use(CKEditor);
 
 app.mount('#app');

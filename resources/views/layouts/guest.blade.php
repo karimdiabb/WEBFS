@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @stack('head')
     <title>{{ config('app.name', 'De Gouden Draak') }}</title>
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/main-front.css'])
+    @vite(['resources/js/app.js', 'resources/css/main-front.css'])
     @stack('css')
 </head>
 

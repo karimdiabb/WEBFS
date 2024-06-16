@@ -15,7 +15,6 @@ class AccountSeeder extends Seeder
      */
     public function run()
     {
-        // Example user accounts
         User::create([
             'name' => 'Admin',
             'email' => 'admin@dev.com',

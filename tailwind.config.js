@@ -8,18 +8,20 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         'node_modules/preline/dist/*.js',
+        './resources/**/*.vue',
     ],
-
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            spacing: {
+                '128': '32rem',
+                '144': '36rem',
+            },
         },
     },
-
     plugins: [forms,
-
         require('preline/plugin'),
     ],
 };

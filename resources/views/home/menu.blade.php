@@ -1,7 +1,8 @@
 @dd("menu")
 <x-guest-layout>
     <div class="menu">
-        <img src="{{ url('../images/menu/restaurant-menukaart-1-2.jpg') }}">
-        <img src="{{ url('../images/menu/restaurant-menukaart-1.jpg') }}">
+        @foreach ($images as $image)
+            <img src="{{ url('images/menu/' . $image->getFilename()) }}" alt="Menu Image">
+        @endforeach
     </div>
 </x-guest-layout>

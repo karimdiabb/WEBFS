@@ -1,8 +1,35 @@
+/* Set default font to Times New Roman */
+body,
+td,
+a,
+.text-center,
+.head-left,
+.head-right,
+.marquee,
+.main_table,
+.row,
+.centered-text,
+.link-style,
+.content-table,
+.menu-table,
+.promo,
+.menu-table td,
+.menu-table a,
+.promo table,
+.promo .menu-right,
+.promo .menu-left,
+#footer {
+    font-family: 'Times New Roman', serif !important;
+}
+
+/* span {
+    padding: 0px !important;
+    margin: 0px !important;
+} */
+
 body {
     background-color: darkred;
-    margin: 15px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin: 15px 50px;
 }
 
 td {
@@ -27,17 +54,15 @@ a {
 }
 
 .head-left {
-    float: left !important;
-    height: 200px !important;
+    float: left;
+    height: 200px;
     vertical-align: middle;
-
 }
 
 .head-right {
-    float: right !important;
-    height: 200px !important;
+    float: right;
+    height: 200px;
     vertical-align: middle;
-
 }
 
 .marquee-container {
@@ -64,7 +89,6 @@ a {
         transform: translateX(-100%);
     }
 }
-
 
 .main_table {
     padding: 5px;
@@ -133,8 +157,6 @@ a {
     border-bottom: 4px solid yellow;
 }
 
-
-
 .spacer {
     width: 7px;
 }
@@ -188,7 +210,6 @@ a {
     padding-left: 30px;
     padding-right: 40px;
 }
-
 
 .menu-table td {
     vertical-align: middle;

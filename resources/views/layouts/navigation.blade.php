@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false, menuOpen: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -27,7 +27,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('sales')" :active="request()->routeIs('sales')">
+                    <x-nav-link :href="route('order.overview')" :active="request()->routeIs('order.overview')">
                         {{ __('Verkoop Overzicht') }}
                     </x-nav-link>
                 </div>
@@ -35,6 +35,35 @@
                     <x-nav-link :href="route('tables')" :active="request()->routeIs('tables')">
                         {{ __('Tafel overzicht') }}
                     </x-nav-link>
+
+                <!-- Menu Dropdown -->
+                <div class="hidden sm:flex sm:items-center sm:ms-6">
+                    <x-dropdown align="left" width="48">
+                        <x-slot name="trigger">
+                            <button
+                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                <div>{{ __('Website') }}</div>
+
+                                <div class="ms-1">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('pages.index')">
+                                {{ __('Pagina\'s') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('menu.index')">
+                                {{ __('Menu') }}
+                            </x-dropdown-link>
+                        </x-slot>
+                    </x-dropdown>
                 </div>
             </div>
 
@@ -50,7 +79,7 @@
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a 1 1 0 01-1.414 0l-4-4a 1 1 0 010-1.414z"
                                         clip-rule="evenodd" />
                                 </svg>
                             </div>
@@ -59,7 +88,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Profiel') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -69,7 +98,7 @@
                             <x-dropdown-link :href="route('logout')"
                                 onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Uitloggen') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -93,12 +122,43 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
+    <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('order')" :active="request()->routeIs('order')">
+                {{ __('Kassa') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dishes')" :active="request()->routeIs('dishes')">
+                {{ __('Gerechten') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('order.overview')" :active="request()->routeIs('order.overview')">
+                {{ __('Verkoop Overzicht') }}
+            </x-responsive-nav-link>
+        </div>
 
+        <!-- Responsive Dropdown Menu -->
+        <div class="pt-2 pb-3 space-y-1">
+            <button @click="menuOpen = ! menuOpen"
+                class="flex items-center w-full px-4 py-2 text-sm font-medium text-left text-gray-700 bg-white hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-800">
+                <span>{{ __('Website') }}</span>
+                <svg class="ml-auto h-4 w-4 transform transition-transform" :class="{ 'rotate-180': menuOpen }"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
+            <div x-show="menuOpen" class="space-y-1">
+                <x-responsive-nav-link :href="route('pages.index')" :active="request()->routeIs('pages.index')">
+                    {{ __('Pagina\'s') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('menu.index')" :active="request()->routeIs('menu.index')">
+                    {{ __('Menu') }}
+                </x-responsive-nav-link>
+            </div>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -110,7 +170,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('Profiel') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -119,11 +179,12 @@
 
                     <x-responsive-nav-link :href="route('logout')"
                         onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                                    this.closest('form').submit();">
+                        {{ __('Uitloggen') }}
                     </x-responsive-nav-link>
                 </form>
             </div>
         </div>
     </div>
+
 </nav>
