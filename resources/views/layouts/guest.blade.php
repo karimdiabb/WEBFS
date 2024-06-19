@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <table class="main_table">
+    <table class="main_table" id="firstTable">
         <tr class="row">
             <td class="centered-text">
                 <img src="{{ url('../images/dragon-small.png') }}" alt="Golden Dragon" class="spacer-height">
@@ -38,8 +38,7 @@
         </tr>
     </table>
 
-
-    <table class="main_table">
+    <table class="main_table" id="secondTable">
         <tr class="row-1">
             <td class="row" colspan="11"></td>
         </tr>
@@ -90,8 +89,8 @@
                                     alt="Golden Dragon">
                                 <img class="head-right" src="{{ url('../images/dragon-small-flipped.png') }}"
                                     alt="Golden Dragon">
-                                <span>Chinees Indische Specialiteiten</span>
-                                <span class="title">De Gouden Draak</span>
+                                <span class="head">Chinees Indische Specialiteiten</span>
+                                <span class="title head">De Gouden Draak</span>
                             </p>
                             <p>
                             <table class="menu-table">
@@ -107,7 +106,6 @@
                                     </td>
                                 </tr>
                             </table>
-
                             </p>
                         </td>
                     </tr>
@@ -116,7 +114,7 @@
                     </tr>
                     <tr class="spacer-padding">
                         <td class="spacer-width"></td>
-                        <td class="promo">
+                        <td class="promo" id="app">
                             {{ $slot }}
                         </td>
                         <td class="spacer-width"></td>
@@ -124,14 +122,13 @@
                     @stack('tr')
                 </table>
                 <br>
-                <div id="footer"><a href="paginas/contact_new.html">Naar Contact</a></div>
+                <div id="footer"><a href="{{ route('contact_new') }}">Naar Contact</a></div>
             </td>
             <td class="bordered"></td>
             <td class="bordered"></td>
             <td class="bordered border-right border-left"></td>
             <td class="spacer"></td>
         </tr>
-
         <tr class="row row-4">
             <td class="spacer"></td>
             <td class="border-top border-right border-bottom"></td>
@@ -154,7 +151,6 @@
             <td class="border-left border-top border-right"></td>
             <td class="spacer"></td>
         </tr>
-
         <tr class="row row-2">
             <td class="spacer"></td>
             <td class="border-left border-bottom"></td>
@@ -169,8 +165,18 @@
         <tr class="row-1">
             <td class="row" colspan="11"></td>
         </tr>
-
     </table>
+    <script>
+        function matchTableWidths() {
+            const firstTable = document.getElementById('firstTable');
+            const secondTable = document.getElementById('secondTable');
+            const secondTableWidth = secondTable.offsetWidth;
+            firstTable.style.width = `${secondTableWidth}px`;
+        }
+
+        window.addEventListener('load', matchTableWidths);
+        window.addEventListener('resize', matchTableWidths);
+    </script>
 </body>
 
 </html>

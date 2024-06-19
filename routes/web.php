@@ -23,17 +23,21 @@ Route::get('/', function () {
 
 Route::get('/menu', [MenuController::class, 'show'])->name('menu');
 Route::get('/menu/download', [MenuController::class, 'downloadPdf'])->name('menu.download');
-
+Route::get('/dishes', [DishController::class, 'index'])->name('dishes.index');
 Route::get('/tables/{tableId}/customer', [TableSessionController::class, 'showCustomer'])->name('table_sessions.customer');
 
 Route::get('/news', function () {
     return view('home.news');
-
 })->name('news');
-Route::get('/contact', function () {
 
+Route::get('/contact', function () {
     return view('home.contact');
 })->name('contact');
+
+Route::get('/contact-new', function () {
+    return view('home.new_contact');
+})->name('contact_new');
+
 
 
 Route::get('/dashboard', function () {
@@ -57,7 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/order/download/{filename}', [OrderOverviewController::class, 'download'])->name('order-summary.download');
     Route::post('/order/generate-summary', [OrderOverviewController::class, 'generate'])->name('order-summary.generate');
 
-    Route::get('/dishes', [DishController::class, 'index'])->name('dishes.index');
 
     Route::get('/tables', [TableSessionController::class, 'index'])->name('tables');
     Route::post('/tables', [TableSessionController::class, 'store']);

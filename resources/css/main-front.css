@@ -22,11 +22,6 @@ a,
     font-family: 'Times New Roman', serif !important;
 }
 
-/* span {
-    padding: 0px !important;
-    margin: 0px !important;
-} */
-
 body {
     background-color: darkred;
     margin: 15px 50px;
@@ -44,7 +39,7 @@ td {
     font-style: normal;
 }
 
-a {
+.main_table a {
     text-decoration: none;
     color: yellow;
 }
@@ -109,7 +104,7 @@ a {
 
 .centered-text img {
     vertical-align: middle;
-    display: inline-block!important; 
+    display: inline-block !important;
 }
 
 .centered-text span {
@@ -178,7 +173,7 @@ a {
     text-align: center;
 }
 
-.content-table span {
+.content-table .head {
     display: block;
     font-size: 40px;
     font-weight: bold;
@@ -255,4 +250,31 @@ a {
 .contact img {
     width: 100% !important;
     height: 100% !important;
+}
+
+
+.buttons-container {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: none;
+}
+
+.styled-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: yellow;
+    color: rgb(0, 0, 0) !important;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-family: 'Times New Roman', serif;
+}
+
+.styled-button:hover {
+    background-color: darkorange;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
