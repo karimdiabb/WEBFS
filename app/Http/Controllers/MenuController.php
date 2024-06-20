@@ -88,6 +88,6 @@ class MenuController extends Controller
 
         $pdf = Pdf::loadView('menu.pdf', compact('menuItems', 'discounts'));
 
-        return $pdf->download('menu.pdf');
+        return $pdf->download('goudendraak_menu.pdf');
     }
 }

@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.dish {
+    border: 1px solid #000;
+    margin-bottom: 10px;
+    padding: 8px;
+    page-break-inside: avoid;
+    line-height: 1;
+}
+.dish-name {
+    font-size: 16px; /* Adjusted from 20px */
+    font-weight: bold;
+}
+.dish-description {
+    font-size: 14px; /* Adjusted from 16px */
+}
+.dish-price {
+    font-size: 16px; 
+    font-weight: bold;
+}
+.page-break {
+    page-break-before: always;
+}
